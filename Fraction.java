@@ -49,7 +49,7 @@ public class Fraction {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
+		// CAN ACTUALLY GET HERE???... delete??
         Fraction fraction = (Fraction) o;
 
         if (getDenominator() != fraction.getDenominator()) return false;
