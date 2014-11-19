@@ -7,6 +7,12 @@ public class Fraction {
     private int numerator;
     private int denominator;
 
+	//Constructors
+	public Fraction() {
+		this.numerator = 0;
+		this.denominator = 1;
+	}
+
     public Fraction(int num, int denom) {
         if (denom == 0) {
             System.out.println("Invalid fraction with denominator 0"); 
@@ -121,7 +127,4 @@ public class Fraction {
 		int denom = Math.abs(this.getDenominator());
 		return new Fraction(num, denom);
 	}
-
-
-
 }
