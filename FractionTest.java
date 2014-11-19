@@ -82,6 +82,7 @@ public class FractionTest {
 		if (!f.equals(g.add(h))) System.out.println("Add failed (OK)");
 
 		//test negate
+		System.out.println (">>>> Testing Negate <<<<");
 		f = new Fraction(7,10);
 		System.out.println("7/10 negated is: " + f.negate().toString()); 
 		f = new Fraction(-5,8);
@@ -91,6 +92,19 @@ public class FractionTest {
 		f = new Fraction(-87,-106);
 		System.out.println("-87/-106 negated is: " + f.negate().toString()); 
 
+		//test subtract - this should pass (simple)
+		System.out.println (">>>> Testing Subtract <<<<");
+		f = new Fraction(1,4);
+		g = new Fraction(3,4);
+		h = new Fraction(1,2);
+		System.out.println(g.toString() + " - " + h.toString() + " = " 
+				+ g.subtract(h).toString());
+		if (!f.equals(g.subtract(h))) System.out.println("Subtract failed (NOT OK)");
+		//test subtract - this should fail (simple)
+		f = new Fraction(2,5);
+		g = new Fraction(3,4);
+		h = new Fraction(1,2);
+		if (!f.equals(g.subtract(h))) System.out.println("Subtract failed (OK)");
 		
 
 

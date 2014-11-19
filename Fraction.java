@@ -104,7 +104,13 @@ public class Fraction {
 	public Fraction negate() {
 		int num = - this.getNumerator();
 		return new Fraction(num, this.getDenominator());
-	}	
+	}
+	
+	//Subtraction
+	public Fraction subtract(Fraction other) {
+		Fraction result = this.add(other.negate());
+		return result;
+	}
 	
 
 
