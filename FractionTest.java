@@ -1,26 +1,30 @@
 /**
- * Created by keith for the second coursework assignment.
+ * Test File for Fraction. Created by keith for the second coursework assignment.
+ * Extended by Mark Kingsbury lking18.
  */
+ 
 public class FractionTest {
     public static void main(String[] args) {
 
         // test divide by zero - should print an error and exit
         new Fraction(1, 0);
-        // test multiply
+        // test multiply - this should pass (simple)
 		Fraction f = new Fraction(3,10);
 		Fraction g = new Fraction(1,2);
 		Fraction h = new Fraction(3,5);
 		if (!f.equals(g.multiply(h))) System.out.println("Multiply failed (NOT OK)");
+        // test multiply - this should fail (simple)
         f= new Fraction(4,10);
         g = new Fraction(1,2);
         h = new Fraction (3,5);
         if (!f.equals(g.multiply(h))) System.out.println("Multiply failed (OK!)");
-        f= new Fraction(30,100);
-        g = new Fraction(1,2);
-        h = new Fraction (3,5);
+        // test multiply - this should pass (test gcd & negs done in Fraction work))
+        f= new Fraction(30,-100);
+        g = new Fraction(-1,2);
+        h = new Fraction (-6,-10);
         if (!f.equals(g.multiply(h))) System.out.println("Multiply failed (NOT OK)");
         
-        // test equals
+        // test equals - only error test 5 should fail
 		test(new Fraction(1, 2),new Fraction(1, 2),"error test 1");
 		test(new Fraction(1, 2),new Fraction(3, 6),"error test 2");
 		test(new Fraction(-1, 2),new Fraction(1, -2),"error test 3");
@@ -29,7 +33,7 @@ public class FractionTest {
 
         // extend with extra tests
         
-        //exploring Fraction (incl myGcd) & to.String output
+        //exploring Fraction (incl myGcd/negatives) & to.String output
         System.out.println (">>>> Exploring Fraction <<<<");
 		System.out.println ("3/10 =\t" + new Fraction(3, 10).toString());
 	   	System.out.println ("5/10 =\t" + new Fraction(5, 10).toString());
@@ -38,6 +42,7 @@ public class FractionTest {
         System.out.println ("6/24 =\t" + new Fraction(6, 24).toString());
         System.out.println ("6/12 =\t" + new Fraction(6, 12).toString());
     	System.out.println ("9/12 =\t" + new Fraction(9, 12).toString());
+		System.out.println ("4/2 =\t" + new Fraction(4, 2).toString());
     	System.out.println ("-1/2 =\t" + new Fraction(-1, 2).toString());
     	System.out.println ("1/-2 =\t" + new Fraction(1,-2).toString());
     	System.out.println ("-1/-2 =\t" + new Fraction(-1,-2).toString());

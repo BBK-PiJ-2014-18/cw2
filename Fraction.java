@@ -1,6 +1,8 @@
 /**
- * Created by keith for the second coursework assignment.
+ * Fraction Class created by keith for the second coursework assignment.
+ * Extended by Mark Kingsbury lking18.
  */
+ 
 public class Fraction {
     private int numerator;
     private int denominator;
@@ -8,16 +10,26 @@ public class Fraction {
     public Fraction(int num, int denom) {
         if (denom == 0) {
             System.out.println("Invalid fraction with denominator 0"); 
-	    // this should use exceptions
+//??    // this should use exceptions
             return;
         }
         // myGcd returns the largest number that goes into both num & denom
         int gcd = myGcd(num, denom);
-   //     System.out.println("num: " + num + " denom: " + denom + " gcd: " + gcd);
         // and then we divide both top and bottom by the gcd.
-        // it also puts any negative on the denom
+        // it also has the effect of resolving any negative onto the denom
         setNumerator(num / gcd);
         setDenominator(denom / gcd);
+    }
+
+	// myGcd returns the largest number that goes into both num & denom
+	// and is negative if need to adjust signs.
+    private int myGcd(int a, int b) {
+        while (b != 0) {
+            int t = b;
+            b = a % b;
+            a = t;
+        }
+        return a;
     }
 
 	// simple print of a fraction
@@ -44,7 +56,7 @@ public class Fraction {
         denominator = num;
     }
 
-	//tests if firstFraction.equals(secondFraction)
+	//tests equality of two fractions
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -58,7 +70,7 @@ public class Fraction {
         return true;
     }
 
-	// NO IDEA WHAT THIS IS...
+	// UNSURE IF MEANT TO TOUCH THIS
 	@Override
     public int hashCode() {
         int result = numerator;
@@ -66,7 +78,7 @@ public class Fraction {
         return result;
     }
 	
-	//simple return of thisFraction.TIMES(theOtherFraction).
+	//Multiplication
     public Fraction multiply(Fraction other) {
 
         int num = this.getNumerator() * other.getNumerator();
@@ -74,14 +86,6 @@ public class Fraction {
         return new Fraction(num, denom);
     }
 
-	// myGcd returns the largest number that goes into both num & denom
-	// and is negative if need to adjust signs.
-    private int myGcd(int a, int b) {
-        while (b != 0) {
-            int t = b;
-            b = a % b;
-            a = t;
-        }
-        return a;
-    }
+	
+
 }
