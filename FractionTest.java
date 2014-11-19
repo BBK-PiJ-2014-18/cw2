@@ -45,6 +45,14 @@ public class FractionTest {
     	System.out.println ("-1/2 =\t" + new Fraction(-1, 2).toString());
     	System.out.println ("1/-2 =\t" + new Fraction(1,-2).toString());
     	System.out.println ("-1/-2 =\t" + new Fraction(-1,-2).toString());
+    	
+    	//test making to.String output improved for when denominator one
+    	System.out.println (">>>> Testing toString improvement <<<<");
+		System.out.println ("3/10 =\t" + new Fraction(3, 10).toString());
+		System.out.println ("5/1 =\t" + new Fraction(5, 1).toString());
+		System.out.println ("5/-1 =\t" + new Fraction(5, -1).toString());
+		System.out.println ("-5/1 =\t" + new Fraction(-5, 1).toString());
+		System.out.println ("-5/-1 =\t" + new Fraction(-5, -1).toString());
 
 		// test divide - this should pass (simple)
 		System.out.println (">>>> Testing Divide <<<<");

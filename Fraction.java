@@ -32,11 +32,14 @@ public class Fraction {
         return a;
     }
 
-	// simple print of a fraction
+	// simple print of a fraction, improved for when denominator = 1
     @Override
     public String toString() {
-        return "" + getNumerator() + '/' + getDenominator();
-    		// will need to improve for then denominator is 1
+    	if (this.getDenominator() != 1) {
+	        return "" + getNumerator() + '/' + getDenominator();
+    	} else {
+    		return "" + getNumerator();
+    	}	
     }
 
 	//getters & setters
