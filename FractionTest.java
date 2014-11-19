@@ -58,8 +58,6 @@ public class FractionTest {
 		f = new Fraction(1,7);
 		g = new Fraction(3,10);
 		h = new Fraction(2,5);
-		System.out.println(g.toString() + " / " + h.toString() + " = " 
-				+ g.divide(h).toString());
 		if (!f.equals(g.divide(h))) System.out.println("Divide failed (OK!)");
         // test divide - this should pass (test gcd & negs done in Fraction work))
         f= new Fraction(3,-4);
@@ -69,10 +67,33 @@ public class FractionTest {
 				+ g.divide(h).toString());
  		if (!f.equals(g.divide(h))) System.out.println("Divide failed (NOT OK)");
  		
+		//test add - this should pass (simple)
+		System.out.println (">>>> Testing Add <<<<");
+		f = new Fraction(9,10);
+		g = new Fraction(1,2);
+		h = new Fraction(2,5);
+		System.out.println(g.toString() + " + " + h.toString() + " = " 
+				+ g.add(h).toString());
+		if (!f.equals(g.add(h))) System.out.println("Add failed (NOT OK)");
+		//test add - this should fail (simple)
+		f = new Fraction(7,10);
+		g = new Fraction(1,2);
+		h = new Fraction(2,5);
+		if (!f.equals(g.add(h))) System.out.println("Add failed (OK)");
+
+		//test negate
+		f = new Fraction(7,10);
+		System.out.println("7/10 negated is: " + f.negate().toString()); 
+		f = new Fraction(-5,8);
+		System.out.println("-5/8 negated is: " + f.negate().toString()); 
+		f = new Fraction(2,-3);
+		System.out.println("2/-3 negated is: " + f.negate().toString()); 
+		f = new Fraction(-87,-106);
+		System.out.println("-87/-106 negated is: " + f.negate().toString()); 
+
 		
-		
-		
-		
+
+
 
 	}
 

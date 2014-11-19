@@ -16,7 +16,7 @@ public class Fraction {
         // myGcd returns the largest number that goes into both num & denom
         int gcd = myGcd(num, denom);
         // and then we divide both top and bottom by the gcd.
-        // it also has the effect of resolving any negative onto the denom
+        // it also has the effect of resolving any top & bottom negatives 
         setNumerator(num / gcd);
         setDenominator(denom / gcd);
     }
@@ -80,7 +80,6 @@ public class Fraction {
 	
 	//Multiplication
     public Fraction multiply(Fraction other) {
-
         int num = this.getNumerator() * other.getNumerator();
         int denom = this.getDenominator() * other.getDenominator();
         return new Fraction(num, denom);
@@ -88,13 +87,26 @@ public class Fraction {
 
 	//Division
 	public Fraction divide(Fraction other) {
-		
 		int num = this.getNumerator() * other.getDenominator();
 		int denom = this.getDenominator() * other.getNumerator();
 		return new Fraction(num, denom);
 	}	
 	
+	//Addition
+	public Fraction add(Fraction other) {
+		int num = this.getNumerator() * other.getDenominator() 
+				+ other.getNumerator() * this.getDenominator();	
+		int denom = this.getDenominator() * other.getDenominator();
+		return new Fraction(num, denom);
+	}	
 	
-	//
+	//Negate - changes the sign of the fraction
+	public Fraction negate() {
+		int num = - this.getNumerator();
+		return new Fraction(num, this.getDenominator());
+	}	
+	
+
+
 
 }
