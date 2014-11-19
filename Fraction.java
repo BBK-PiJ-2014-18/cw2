@@ -86,6 +86,15 @@ public class Fraction {
         return new Fraction(num, denom);
     }
 
+	//Division
+	public Fraction divide(Fraction other) {
+		
+		int num = this.getNumerator() * other.getDenominator();
+		int denom = this.getDenominator() * other.getNumerator();
+		return new Fraction(num, denom);
+	}	
 	
+	
+	//
 
 }
