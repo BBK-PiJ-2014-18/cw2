@@ -112,6 +112,12 @@ public class Fraction {
 		return result;
 	}
 	
+	//Absolute Value
+	public Fraction absValue() {
+		int num = Math.abs(this.getNumerator());
+		int denom = Math.abs(this.getDenominator());
+		return new Fraction(num, denom);
+	}
 
 
 

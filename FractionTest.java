@@ -106,7 +106,16 @@ public class FractionTest {
 		h = new Fraction(1,2);
 		if (!f.equals(g.subtract(h))) System.out.println("Subtract failed (OK)");
 		
-
+		//test absValue
+		System.out.println (">>>> Testing Absolute Value <<<<");
+		f = new Fraction(-1,4);
+		System.out.println("Abs Value of -1/4 is : " + f.absValue());
+		f = new Fraction(1,-4);
+		System.out.println("Abs Value of 1/-4 is : " + f.absValue());
+		f = new Fraction(-1,-4);
+		System.out.println("Abs Value of -1/-4 is : " + f.absValue());
+		f = new Fraction(1,4);
+		System.out.println("Abs Value of 1/4 is : " + f.absValue());
 
 
 	}
