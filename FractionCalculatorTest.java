@@ -32,6 +32,9 @@ public class FractionCalculatorTest {
 		Fraction result = test1.evaluate(startFraction, testString);
 		testString = "524/4265 - 7/14 * 2/4";
 		result = test1.evaluate(startFraction, testString);
+		testString = "8887 - 7/14 * 2/4";
+		result = test1.evaluate(startFraction, testString);
+		
 
 	
 	}

@@ -46,7 +46,7 @@ public class FractionCalculator {
 		}	
 		//nextItem is the next operation or fraction in the string
 		String nextItem = inputString.substring(0,i);
-		//result is input string with nextItem removed from front
+		//result is input string with nextItem & space removed from front
 		result = inputString.substring(i+1, inputString.length()); 
 		//check what next item is and store it in nextFraction or rememberedOperation
 		Boolean nextItemCheck = checkNextItem(nextItem);
@@ -55,7 +55,7 @@ public class FractionCalculator {
 		return result;
 	}
 
-	//THIS IS MESSY... WHY NEED TO WORK WITH CHAR RATHER THAN STR?? 
+	//THIS IS MESSY... WHY NEED TO WORK WITH CHAR RATHER THAN STR?? str.EQUALS !! DUH.
 	private boolean checkNextItem(String nextItem) {
 	
 		if(nextItem.length() == 1) {
@@ -73,7 +73,14 @@ public class FractionCalculator {
 			nextFraction = new Fraction(num, denom);
 			return true;			
 		}
-		
+		// if nextItem is a whole number store it as nextFraction & return true
+		if(isWholeNumber(nextItem)) {
+			int num = Integer.parseInt(nextItem);
+			int denom = 1;
+			nextFraction = new Fraction(num, denom);
+			return true;			
+		}	
+			
 		// add more.....
 		
 		
@@ -134,5 +141,17 @@ public class FractionCalculator {
 		result = Integer.parseInt(numPart);
 		return result;
 	}
+	
+	private boolean isWholeNumber(String nextItem) {
+		boolean result = true;
+		for (int i = 0 ; i < nextItem.length() ; i ++) {
+			char c = (char) nextItem.charAt(i);
+			if(!Character.isDigit(c)) {
+				result = false;
+			}
+		} 
+		return result;
+	}
+	
 
 }
