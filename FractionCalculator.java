@@ -10,24 +10,32 @@ public class FractionCalculator {
 		nextFraction = null;
 		rememberedOperation = null;
 	}
-		
+	
+	//getters
+	public Fraction getCalcValue() {
+		return this.calcValue;
+	}
+	public Fraction getNextFraction() {
+		return this.nextFraction;
+	}
+	public String getRememberedOperation() {
+		return this.rememberedOperation;
+	}
+	//reset Calculator to zero
+	public void resetCalculator() {
+		this.calcValue = new Fraction(0,1);
+		this.nextFraction = new Fraction(0,1);
+		this.rememberedOperation = "";
+	}	
+	
+	
+	
 	//the evaluate method
 	public Fraction evaluate(Fraction fraction, String inputString) {
 		
 		calcValue = fraction;
-		System.out.println();
-		System.out.println("Input String starts as: " + inputString);
 		inputString = getStringPart(inputString);
-		System.out.println("Input String ends as: " + inputString);	
-		System.out.println("Remembered Operation is: " + rememberedOperation);
-		if(nextFraction != null) {
-			System.out.println("Next Fraction is: " + nextFraction.toString());
-		} else {
-			System.out.println("Next Fraction is empty");
-		}
-		System.out.println();
 		return calcValue;
-
 	}
 
 	/**
@@ -57,8 +65,9 @@ public class FractionCalculator {
 
 	//THIS IS MESSY... WHY NEED TO WORK WITH CHAR RATHER THAN STR?? str.EQUALS !! DUH.
 	private boolean checkNextItem(String nextItem) {
+			if(nextItem.length() == 1) {
+				//MOVE TO SEPERATE METHODS...
 	
-		if(nextItem.length() == 1) {
 			//if nextItem is an operation store it as that & return true
 			if(nextItem.charAt(0) == '+' || nextItem.charAt(0) == '-' 
 					|| nextItem.charAt(0) == '*' || nextItem.charAt(0) == '/') {
@@ -80,10 +89,10 @@ public class FractionCalculator {
 			nextFraction = new Fraction(num, denom);
 			return true;			
 		}	
-			
-		// add more.....
-		
-		
+		if(isOtherInstruction(nextItem)) {
+			String shortOtherInstruction = makeShortOtherInstruction(nextItem);
+			rememberedOperation = shortOtherInstruction;
+		}	
 		// if none of above check out ok, return false - we have invalid input
 		return false;	
 	}
@@ -153,5 +162,24 @@ public class FractionCalculator {
 		return result;
 	}
 	
-
+	private boolean isOtherInstruction(String nextItem) {
+		if(nextItem.equals("a") || nextItem.equals("A") || nextItem.equals("abs") 
+			|| nextItem.equals("n") || nextItem.equals("N") || nextItem.equals("neg")
+			|| nextItem.equals("c") || nextItem.equals("C") || nextItem.equals("clear")
+			|| nextItem.equals("q") || nextItem.equals("Q") || nextItem.equals("quit")) {
+			return true;
+		} else {
+			return false;
+		}		
+	}
+	
+	private String makeShortOtherInstruction(String nextItem) {
+	
+		//make other instruction just one letter and lowercase
+		nextItem = nextItem.toLowerCase();
+		return nextItem.substring(0,1);
+	
+	}
+	
+	
 }
