@@ -124,8 +124,6 @@ public class FractionTest {
 		System.out.println("Abs Value of -1/-4 is : " + f.absValue());
 		f = new Fraction(1,4);
 		System.out.println("Abs Value of 1/4 is : " + f.absValue());
-
-
 	}
 
     static void test(Fraction f1, Fraction f2, String msg){

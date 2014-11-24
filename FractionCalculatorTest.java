@@ -226,8 +226,7 @@ public class FractionCalculatorTest {
 		}
 		if (!testCalc.getNextFraction().equals(fractionStored)) {
 			System.out.println("ERROR: " + msg);
-		}	
-	
+		}		
 	}
 	
 	private void testCheckIsWholeNumber(String testString, boolean answer, String msg) {
@@ -262,22 +261,12 @@ public class FractionCalculatorTest {
 		}
 	}
 
-
 	private void testFullString(String testString, Fraction answer, String msg) {
 		FractionCalculator testCalc = new FractionCalculator();	
 		Fraction startFraction = new Fraction(0,1);
 		Fraction result = testCalc.evaluate(startFraction, testString);
 		if (!result.equals(answer)) {
 			System.out.println("ERROR: " + msg);
-		}
-	
-		
-		
-		
+		}		
 	}
-	
-	
-	
-	
-	
 }
