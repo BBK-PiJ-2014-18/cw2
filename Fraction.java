@@ -15,9 +15,8 @@ public class Fraction {
 
     public Fraction(int num, int denom) {
         if (denom == 0) {
-            System.out.println("Invalid fraction with denominator 0"); 
-//??    // this should use exceptions
-            return;
+            System.out.println("Invalid fraction with denominator 0 - ERROR"); 
+			return;
         }
         // myGcd returns the largest number that goes into both num & denom
         int gcd = myGcd(num, denom);
